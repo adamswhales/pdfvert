@@ -12,4 +12,4 @@ ADSENSE_SLOT_BOTTOM = "2222222222"       # slot ID for bottom banner
 ADSENSE_SLOT_INTERSTITIAL = "3333333333" # slot ID for interstitial modal
 
 # File limits (MB)
-MAX_FILE_SIZE_MB = 50
+MAX_FILE_SIZE_MB = 500
