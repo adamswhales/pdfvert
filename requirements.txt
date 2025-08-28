@@ -1,0 +1,12 @@
+flask>=2.2.0
+gunicorn
+werkzeug
+pikepdf
+pillow
+python-docx
+reportlab
+moviepy
+imageio
+imageio-ffmpeg
+rembg
+PyPDF2
