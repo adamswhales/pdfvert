@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="text-align:center;margin:14px 0 2px;">{{ SITE_NAME }} – Free Online File Converter Tools</h1>
+<p style="text-align:center;opacity:.8;max-width:900px;margin:0 auto 12px;">
+  Convert PDF, PNG, JPG, and MP4 in your browser. No sign‑up, free downloads, mobile friendly.
+</p>
+<div class="tool-grid" role="list">
+{% for slug, cfg in tools.items() %}
+  <a class="tool-box" href="{{ url_for('tool', slug=slug) }}" role="listitem">{{ cfg.title }}</a>
+{% endfor %}
+</div>
+<p style="text-align:center;"><a href="{{ url_for('how_to_use') }}">How to use {{ SITE_NAME }}</a></p>
+{% endblock %}

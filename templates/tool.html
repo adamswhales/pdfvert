@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ tool_name }}</h2>
+<p style="opacity:.85">{{ desc }}</p>
+<form class="upload" method="post" enctype="multipart/form-data" id="toolForm">
+  <input type="file" name="file" {% if multiple %}multiple{% endif %} accept="{{ accept }}" required>
+  <button class="primary" type="submit">Convert / Compress / Download</button>
+</form>
+
+{% if config.ADS_ENABLED %}
+<div class="modal" id="interModal">
+  <div class="content">
+    <h3>Processing your file…</h3>
+    <p>This may take a few seconds depending on file size.</p>
+    <div class="ad">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="{{ config.ADSENSE_CLIENT }}" data-ad-slot="{{ config.ADSENSE_SLOT_INTERSTITIAL }}" data-ad-format="auto"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="modal" id="interModal">
+  <div class="content">
+    <h3>Processing your file…</h3>
+    <p>This may take a few seconds depending on file size.</p>
+  </div>
+</div>
+{% endif %}
+
+<script>
+const form = document.getElementById('toolForm');
+form.addEventListener('submit', () => {
+  document.getElementById('interModal').style.display = 'flex';
+});
+</script>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title if title else SITE_NAME ~ ' – Free Online File Converter Tools' }}</title>
+  <meta name="description" content="{{ description if description else 'Convert PDF, PNG, JPG, and MP4 with ' ~ SITE_NAME ~ ' — free, fast, and no login required.' }}">
+  <meta name="keywords" content="PDF converter, PNG to PDF, MP4 to MP3, video converter, image compressor, merge PDF, compress PDF, background remover, online tools">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='logo.png') }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ SITE_NAME }}",
+    "url": "{{ config.SITE_URL }}",
+    "description": "Free online toolbox for file conversions and compression.",
+    "publisher": {"@type": "Organization", "name": "{{ SITE_NAME }}",
+      "logo": {"@type": "ImageObject", "url": "{{ config.SITE_URL }}/static/logo.png"}
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% if config.ADS_ENABLED %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ config.ADSENSE_CLIENT }}" crossorigin="anonymous"></script>
+  {% endif %}
+</head>
+<body>
+  <header>
+    <a href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="{{ SITE_NAME }} logo" style="height:34px;width:auto;">
+      <strong style="font-size:1.2rem;">{{ SITE_NAME }}</strong>
+    </a>
+  </header>
+
+  {% if config.ADS_ENABLED %}
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="{{ config.ADSENSE_CLIENT }}" data-ad-slot="{{ config.ADSENSE_SLOT_TOP }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  {% else %}
+  <div style="height:8px;"></div>
+  {% endif %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% if config.ADS_ENABLED %}
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="{{ config.ADSENSE_CLIENT }}" data-ad-slot="{{ config.ADSENSE_SLOT_BOTTOM }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  {% endif %}
+
+  <footer>
+    <p>&copy; 2025 {{ SITE_NAME }}</p>
+  </footer>
+</body>
+</html>

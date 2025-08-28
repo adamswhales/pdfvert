@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>How to Use {{ SITE_NAME }}</h2>
+<ol style="max-width:760px;margin:10px auto;text-align:left;">
+  <li>Pick a tool from the homepage.</li>
+  <li>Upload your file(s) using the file picker.</li>
+  <li>Click the big button to start processing.</li>
+  <li>Wait while processing completes (a small modal appears).</li>
+  <li>Your download will start automatically or you will receive a save dialog.</li>
+</ol>
+
+<h3>Tips</h3>
+<ul style="max-width:760px;margin:10px auto;text-align:left;">
+  <li>For smaller PDFs, try the <strong>Compress PDF</strong> tool.</li>
+  <li>To combine pages, use <strong>Merge PDF</strong>.</li>
+  <li>Convert video to audio with <strong>MP4 → MP3</strong>.</li>
+</ul>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name":"Is {{ SITE_NAME }} free?","acceptedAnswer":{"@type":"Answer","text":"Yes, {{ SITE_NAME }} is free with a default 50MB file limit per upload."}},
+    {"@type":"Question","name":"Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"No account needed — upload, convert, and download directly."}},
+    {"@type":"Question","name":"Are my files stored?","acceptedAnswer":{"@type":"Answer","text":"Files are kept only temporarily for processing and removed shortly after."}}    
+  ]
+}
+</script>
+{% endblock %}
